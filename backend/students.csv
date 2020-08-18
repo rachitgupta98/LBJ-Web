@@ -1,0 +1,5 @@
+Student_Id,Name,Gender,DateOfBirth,City,State,EmailId,Qualification,Stream
+1,Raj,Male,10-10-1995,Mumbai,Maharashtra,raj@gmail.com,B.E.,Electronics
+2,Priyanka,Female,1995-10-20,Pune,Maharashtra,priyanka@gmail.com,B.Tech,IT
+100,Rachit Gupta,Male,1998-03-23,Bhopal,Madhya Pradesh,guptarachit371@gmail.com,BE,CSE
+200,Dhoni,Male,2020-08-07,Ranchi,Jharkhand,mahi@gmail.com,B Tech,Mech

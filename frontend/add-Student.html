@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <h2 class="addStudent">Add Student</h2>
+    <div class="add addStudent">
+      <form method="post" id="formSubmit">
+        <label>Student Id:</label><br />
+        <input
+          type="text"
+          id="s_id"
+          name="student_ID"
+          value=""
+          required
+        /><br /><br />
+
+        <label>Student Name:</label><br />
+        <input
+          type="text"
+          id="s_name"
+          name="Student_NAME"
+          value=""
+          required
+        /><br /><br />
+        <label>Gender:</label><br />
+        <input type="radio" id="male" name="gender" value="Male" />
+        <label for="male">Male</label><br />
+        <input type="radio" id="female" name="gender" value="Female" />
+        <label for="female">Female</label><br /><br />
+
+        <label for="birthday">Date Of Birth:</label><br /><br />
+        <input type="date" id="birthday" name="birthday" /><br /><br />
+        <label>City:</label><br />
+        <input
+          type="text"
+          id="s_city"
+          name="city"
+          value=""
+          required
+        /><br /><br />
+
+        <label>State:</label><br />
+        <input
+          type="text"
+          id="s_state"
+          name="state"
+          value=""
+          required
+        /><br /><br />
+
+        <label>Email ID:</label><br />
+        <input
+          type="email"
+          id="s_email"
+          name="email"
+          value=""
+          required
+        /><br /><br />
+
+        <label>Qualification:</label><br />
+        <input
+          type="text"
+          id="s_qualification"
+          name="qualify"
+          value=""
+          required
+        /><br /><br />
+
+        <label>Stream:</label><br />
+        <input
+          type="text"
+          id="s_stream"
+          name="stream"
+          value=""
+          required
+        /><br />
+
+        <br />
+        <button type="submit" class="button button3">Submit</button>
+      </form>
+    </div>
+    <script>
+      const formElem = document.getElementById("formSubmit");
+      formElem.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const body = JSON.stringify(
+          Object.fromEntries(new FormData(event.target))
+        );
+        fetch("http://127.0.0.1:9999/addStudents", {
+          method: "post",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: body,
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            alert(data.msg);
+          });
+      });
+    </script>
+  </body>
+</html>

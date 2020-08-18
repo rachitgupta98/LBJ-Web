@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Student</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body onload="fetchStudents()">
+    <h1 class="addStudent">Students Data</h1>
+    <div id="container" class="StudentById"></div>
+    <script>
+      function fetchStudents() {
+        fetch("http://127.0.0.1:9999/displayStudent")
+          .then((res) => res.json())
+          .then((data) => {
+            var html = "<table border='1|1'>";
+            let header = [
+              "Student_Id",
+              "Name",
+              "Gender",
+              "DateOfBirth",
+              "City",
+              "State",
+              "EmailId",
+              "Qualification",
+              "Stream",
+            ];
+            for (let i = 0; i < header.length; i++) {
+              html += "<td>" + "<b>" + header[i] + "</b>" + "</td>";
+            }
+            for (var i = 0; i < data.length; i++) {
+              html += "<tr>";
+              html += "<td>" + data[i].Student_Id + "</td>";
+              html += "<td>" + data[i].Name + "</td>";
+              html += "<td>" + data[i].Gender + "</td>";
+              html += "<td>" + data[i].DateOfBirth + "</td>";
+              html += "<td>" + data[i].City + "</td>";
+              html += "<td>" + data[i].State + "</td>";
+              html += "<td>" + data[i].EmailId + "</td>";
+              html += "<td>" + data[i].Qualification + "</td>";
+              html += "<td>" + data[i].Stream + "</td>";
+
+              html += "</tr>";
+            }
+            html += "</table>";
+            document.getElementById("container").innerHTML = html;
+          });
+      }
+    </script>
+  </body>
+</html>

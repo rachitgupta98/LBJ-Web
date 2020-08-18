@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <h1 class="homeButtons">LBJ Web Case Study</h1>
+    <div class="homeButtons">
+      <button class="button button1" type="button" onclick="add()">
+        Add New Student
+      </button>
+      <button class="button button2" type="button" onclick="search()">
+        Search Student
+      </button>
+      <button class="button button3" type="button" onclick="display()">
+        Display Students
+      </button>
+    </div>
+    <script>
+      function add() {
+        window.location.href = "./add-Student.html";
+      }
+      function search() {
+        window.location.href = "./search-student.html";
+      }
+      function display() {
+        window.location.href = "./displayStudents.html";
+      }
+    </script>
+  </body>
+</html>
